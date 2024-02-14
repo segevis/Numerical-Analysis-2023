@@ -19,8 +19,6 @@ def gaussianElimination(mat):
     return backward_substitution(mat)
 
 
-
-
 def forward_substitution(mat):
     N = len(mat)
     for k in range(N):
@@ -30,12 +28,12 @@ def forward_substitution(mat):
         v_max = mat[pivot_row][k]
         for i in range(k + 1, N):
             if abs(mat[i][k]) > v_max:
-                v_max = mat[i][k]
+                v_max = abs(mat[i][k])
                 pivot_row = i
 
         # if a principal diagonal element is zero,it denotes that matrix is singular,
         # and will lead to a division-by-zero later.
-        if not mat[k][pivot_row]:
+        if not mat[pivot_row][k]:
             return k  # Matrix is singular
 
         # Swap the current row with the pivot row
@@ -54,7 +52,15 @@ def forward_substitution(mat):
 
             # filling lower triangular matrix with zeros
             mat[i][k] = 0
+            print(f"matrix: \n{np.array(mat)}\n")
 
+        for z in range(k, N):
+            mat[k][z+1] /= mat[k][k]
+        mat[k][k] /= mat[k][k]
+
+    mat[N-1][N] /= mat[N-1][N-1]
+    mat[N-1][N-1] /= mat[N-1][N-1]
+    print(f"matrix: \n{np.array(mat)}\n")
     return -1
 
 
@@ -79,15 +85,18 @@ def backward_substitution(mat):
 
 if __name__ == '__main__':
 
-    A_b = [[1, -1, 2, -1, -8],
-        [2, -2, 3, -3, -20],
-        [1, 1, 1, 0, -2],
-        [1, -1, 4, 3, 4]]
+    # A_b = [[1, 2, 3, 4, 5],
+    #        [2, 3, 4, 5, 1],
+    #        [8, 8, 8, 8, 1],
+    #        [24, 15, 22, 1, 8]]
+
+    A_b = [[0.913, 0.659, 0.254],
+           [0.457, 0.330, 0.127]]
 
     result = gaussianElimination(A_b)
     if isinstance(result, str):
         print(result)
     else:
-        print(bcolors.OKBLUE,"\nSolution for the system:")
+        print(bcolors.OKBLUE, "\nSolution for the system:")
         for x in result:
             print("{:.6f}".format(x))
