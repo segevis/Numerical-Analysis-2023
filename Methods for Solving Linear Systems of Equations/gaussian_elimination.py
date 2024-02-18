@@ -41,12 +41,6 @@ def forward_substitution(mat):
             swap_row(mat, k, pivot_row)
         # End Partial Pivoting
 
-        for u in range(N):
-            if not round(mat[u][u], 4):
-                mat[u][u] = 0
-                print(f"matrix: \n{np.array(mat)}\n")
-                return N - 1
-
         for z in range(k, N):
             mat[k][z + 1] /= mat[k][k]
         mat[k][k] /= mat[k][k]
@@ -71,6 +65,11 @@ def forward_substitution(mat):
         # for z in range(k, N):
         #     mat[k][z+1] /= mat[k][k]
         # mat[k][k] /= mat[k][k]
+        for u in range(N):
+            if not round(mat[u][u], 4):
+                mat[u][u] = 0
+                print(f"matrix: \n{np.array(mat)}\n")
+                return N - 1
 
     mat[N - 1][N] /= mat[N - 1][N - 1]
     mat[N - 1][N - 1] /= mat[N - 1][N - 1]
@@ -99,13 +98,9 @@ def backward_substitution(mat):
 
 if __name__ == '__main__':
 
-    A_b = [[1, 2, 3, 4, 5],
-           [2, 3, 4, 5, 1],
-           [8, 8, 8, 8, 1],
-           [24, 15, 22, 1, 8]]
-
-    # A_b = [[0.913, 0.659, 0.254],
-    #      [0.457, 0.330, 0.127]]
+    A_b = [[1, 3, 0, 5],
+           [3, 4, 5, 1],
+           [8, 8, 3, 1], ]
 
     np.set_printoptions(suppress=True, precision=4)
 
