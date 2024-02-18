@@ -89,7 +89,7 @@ def inverse(matrix):
 
 if __name__ == '__main__':
 
-    A = np.array([[3, 2, 0],
+    A = np.array([[7, 2, 0],
                   [0, 3, 1],
                   [5, 2, 10]])
 

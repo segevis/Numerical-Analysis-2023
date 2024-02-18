@@ -45,12 +45,11 @@ def forward_substitution(mat):
             if not round(mat[u][u], 4):
                 mat[u][u] = 0
                 print(f"matrix: \n{np.array(mat)}\n")
-                return N-1
+                return N - 1
 
         for z in range(k, N):
-            mat[k][z+1] /= mat[k][k]
+            mat[k][z + 1] /= mat[k][k]
         mat[k][k] /= mat[k][k]
-
 
         for i in range(k + 1, N):
 
@@ -73,8 +72,8 @@ def forward_substitution(mat):
         #     mat[k][z+1] /= mat[k][k]
         # mat[k][k] /= mat[k][k]
 
-    mat[N-1][N] /= mat[N-1][N-1]
-    mat[N-1][N-1] /= mat[N-1][N-1]
+    mat[N - 1][N] /= mat[N - 1][N - 1]
+    mat[N - 1][N - 1] /= mat[N - 1][N - 1]
     print(f"matrix: \n{np.array(mat)}\n")
     return -1
 
@@ -105,7 +104,7 @@ if __name__ == '__main__':
            [8, 8, 8, 8, 1],
            [24, 15, 22, 1, 8]]
 
-    #A_b = [[0.913, 0.659, 0.254],
+    # A_b = [[0.913, 0.659, 0.254],
     #      [0.457, 0.330, 0.127]]
 
     np.set_printoptions(suppress=True, precision=4)
