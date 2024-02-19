@@ -2,6 +2,9 @@ import numpy as np
 from colors import bcolors
 from matrix_utility import swap_row
 
+# name: segev isaac
+# id: 207938085
+
 
 def gaussianElimination(mat):
     N = len(mat)
@@ -39,6 +42,12 @@ def forward_substitution(mat):
         # Swap the current row with the pivot row
         if pivot_row != k:
             swap_row(mat, k, pivot_row)
+        # for i in range(N):
+        #     if mat[i][i] == 0:
+        #         pass
+        #     elif not round(mat[i][i], 4):
+        #         mat[i][i] = 0
+        #     return N - 1
         # End Partial Pivoting
 
         for z in range(k, N):
@@ -65,11 +74,11 @@ def forward_substitution(mat):
         # for z in range(k, N):
         #     mat[k][z+1] /= mat[k][k]
         # mat[k][k] /= mat[k][k]
-        for u in range(N):
-            if not round(mat[u][u], 4):
-                mat[u][u] = 0
-                print(f"matrix: \n{np.array(mat)}\n")
-                return N - 1
+    for u in range(N):
+        if not round(mat[u][u], 4):
+            mat[u][u] = 0
+            print(f"matrix: \n{np.array(mat)}\n")
+            return N - 1
 
     mat[N - 1][N] /= mat[N - 1][N - 1]
     mat[N - 1][N - 1] /= mat[N - 1][N - 1]
@@ -98,7 +107,7 @@ def backward_substitution(mat):
 
 if __name__ == '__main__':
 
-    A_b = [[1, 3, 0, 5],
+    A_b = [[2, 3, 0, 5],
            [3, 4, 5, 1],
            [8, 8, 3, 1], ]
 
