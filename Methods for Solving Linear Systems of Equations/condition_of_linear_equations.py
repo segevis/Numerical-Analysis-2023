@@ -40,16 +40,20 @@ def condition_number(A):
 
     print(bcolors.OKBLUE, "Max Norm of A:", bcolors.ENDC, norm_A, "\n")
 
-    print(bcolors.OKBLUE, "max norm of the inverse of A:", bcolors.ENDC, norm_A_inv)
+    # print(bcolors.OKBLUE, "max norm of the inverse of A:", bcolors.ENDC, norm_A_inv)
 
     return cond_
 
 
 if __name__ == '__main__':
+
+    print(" Date: 19/2/2024 '\n' Group: Sapir Natanov 322378068 '\n'Dor Maudi 207055138 '\n'Noa Yasharzadeh 208595157 '\n'Segev Isaac 207938085 '\n'Git: https://github.com/segevis/Numerical-Analysis-2023 '\n'Name: segev isaac 207938085")
+
+
     A = np.array([[-1, -2, 5],
                   [4, -1, 1],
                   [1, 6, 2]])
 
     cond = condition_number(A)
 
-    print(bcolors.OKGREEN, "\n condition number: ", cond, bcolors.ENDC)
+    # print(bcolors.OKGREEN, "\n condition number: ", cond, bcolors.ENDC)
