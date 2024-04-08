@@ -107,9 +107,11 @@ def backward_substitution(mat):
 
 if __name__ == '__main__':
 
-    A_b = [[2, 3, 0, 5],
-           [3, 4, 5, 1],
-           [8, 8, 3, 1], ]
+    A_b = [[2, 3, 4, 5, 6, 92],
+           [-5, 3, 4, -2, 3, 22],
+           [4, -5, -2, 2, 6, 42],
+           [4, 5, -1, -2, -3, -22],
+           [5, 5, 3, -3, 5, 41]]
 
     np.set_printoptions(suppress=True, precision=4)
 
